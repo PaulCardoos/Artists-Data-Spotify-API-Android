@@ -81,12 +81,8 @@ public class AuthenticationActivity extends AppCompatActivity {
             User user = userService.getUser();
             editor = getSharedPreferences("SPOTIFY", 0).edit();
 
-            //I have stored the id in shared preferences to access this user again
             editor.putString("userid", user.id);
             editor.putString("name", user.display_name);
-            Log.d("STARTING", user.id);
-            Log.d("STARTING", user.display_name);
-            Log.d("STARTING", user.href);
 
             editor.commit();
             startMainActivity();

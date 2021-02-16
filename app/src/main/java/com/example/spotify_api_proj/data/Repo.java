@@ -1,14 +1,10 @@
 package com.example.spotify_api_proj.data;
-
 import android.content.SharedPreferences;
-
 import com.android.volley.AuthFailureError;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.gson.Gson;
 import com.example.spotify_api_proj.model.User;
-
-
 import java.util.HashMap;
 import java.util.Map;
 
