@@ -24,6 +24,7 @@ public class UserService {
     public User getUser() {
         return user;
     }
+    //make call to endpoint to get user info
     public void get(final AsyncHandler callBack) {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, ENDPOINT, null, response -> {
             Gson gson = new Gson();
@@ -32,6 +33,7 @@ public class UserService {
         }, error -> get(() -> {
 
         })) {
+            //need this override method to provide header to request
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> headers = new HashMap<>();

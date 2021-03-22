@@ -18,13 +18,14 @@ public class MainActivity extends AppCompatActivity {
     private Songs songs;
     private RequestQueue q;
 
-    //array adapter
+    //array adapter for list view
     private ArrayAdapter arrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //data binding for easy access
         binding = DataBindingUtil.setContentView(MainActivity.this, R.layout.activity_main);
         SharedPreferences sp = this.getSharedPreferences("SPOTIFY", 0);
         String name = sp.getString("name", null);

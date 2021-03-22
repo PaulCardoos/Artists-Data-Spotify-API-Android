@@ -27,6 +27,7 @@ public class Repo {
         return user;
     }
 
+    //make request
     public void get(final AsyncHandler callBack) {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(ENDPOINT, null, response -> {
             Gson gson = new Gson();
@@ -35,6 +36,7 @@ public class Repo {
         }, error -> get(() -> {
 
         })) {
+            //need this override method to provide header to request
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> headers = new HashMap<>();

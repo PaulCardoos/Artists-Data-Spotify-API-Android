@@ -1,5 +1,6 @@
 package com.example.spotify_api_proj.model;
 
+//will eventually use this class to fetch song from each individual artist
 public class Song {
     private String song;
     private String id;

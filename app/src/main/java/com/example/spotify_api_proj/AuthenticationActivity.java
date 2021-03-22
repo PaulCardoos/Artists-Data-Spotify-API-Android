@@ -26,7 +26,8 @@ public class AuthenticationActivity extends AppCompatActivity {
 
     private RequestQueue queue;
 
-    private static final String CLIENT_ID  = "55a012a430434b1ca8c2be7836d9a4b8";
+    //enter your own client ID
+    private static final String CLIENT_ID  = "12345678920";
     private static final int REQUEST_CODE = 1337;
     public static final String REDIRECT_URI = "com.example.spotifyapiproj://callback";
 
@@ -40,6 +41,7 @@ public class AuthenticationActivity extends AppCompatActivity {
         queue = Volley.newRequestQueue(this);
     }
 
+    //Authentication from Spotify API
     protected void LoginActivityAuthentication(){
         AuthorizationRequest.Builder builder = new AuthorizationRequest.Builder(CLIENT_ID, TOKEN, REDIRECT_URI);
         builder.setScopes(new String[]{"streaming user-top-read"});
@@ -78,6 +80,7 @@ public class AuthenticationActivity extends AppCompatActivity {
     private void waitForUserInfo() {
         UserService userService = new UserService(queue, msharedPreferences);
         userService.get(() -> {
+            //wait for user info form callback and saved to shared preferences
             User user = userService.getUser();
             editor = getSharedPreferences("SPOTIFY", 0).edit();
 
@@ -88,6 +91,7 @@ public class AuthenticationActivity extends AppCompatActivity {
             startMainActivity();
         });
     }
+
 
     private void startMainActivity() {
         Intent intent = new Intent(AuthenticationActivity.this, MainActivity.class);

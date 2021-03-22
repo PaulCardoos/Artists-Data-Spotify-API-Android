@@ -31,6 +31,7 @@ public class Songs {
         return artists;
     }
 
+    //make call to endpoint to recieve artists data
     public ArrayList<Artist> getTopArtists(final AsyncHandler callback){
         String url = "https://api.spotify.com/v1/me/top/artists";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, response -> {
@@ -44,7 +45,7 @@ public class Songs {
                         String id = obj.getString("id");
                         String name = obj.getString("name");
 
-
+                        //save artist to array list
                         Artist artist = new Artist(name, id, followers, popularity);
                         artists.add(artist);
 
@@ -56,6 +57,7 @@ public class Songs {
 
         })) {
             @Override
+            //need this override method to provide header to request
             public Map<String, String> getHeaders() throws AuthFailureError{
                 Map<String, String> headers = new HashMap();
                 String token = sp.getString("token", "");

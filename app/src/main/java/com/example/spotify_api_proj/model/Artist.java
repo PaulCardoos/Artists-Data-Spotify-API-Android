@@ -1,5 +1,6 @@
 package com.example.spotify_api_proj.model;
 
+//added this extra class to allow user to click on artist and fetch information
 public class Artist {
     private String name ;
     private String id;
