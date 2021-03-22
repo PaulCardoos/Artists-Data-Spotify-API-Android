@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(MainActivity.this, R.layout.activity_main);
         SharedPreferences sp = this.getSharedPreferences("SPOTIFY", 0);
         String name = sp.getString("name", null);
+        binding.nameTxtViewName.setText(name);
         songs = new Songs(getApplicationContext());
         getArtistsForListView();
 
